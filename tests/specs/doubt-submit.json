@@ -1,20 +1,9 @@
 [
   {
-    "name": "Ask Doubt",
+    "name": "Typed doubt receives a stepwise solution",
     "steps": [
-      {
-        "expect": [
-          {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Initiate multimodal doubt submission flow (image/PDF/voice)"
-            }
-          }
-        ],
-        "send": {
-          "callback": "doubt:submit"
-        }
-      }
+      { "send": { "callback": "doubt:submit" }, "expect": [{ "method": "editMessageText", "payload": { "text": "Send a clear photo, PDF, voice note, or type the question. Add a caption to a file if it needs context." } }] },
+      { "send": { "text": "How do I use Ohm law for current?" }, "expect": [{ "method": "sendMessage", "payload": { "text": "Here’s a way to work through it:\n\n1. List the voltage, current, and resistance given in the question.\n2. Use Ohm’s law: V = IR.\n3. Rearrange only after checking the unit you need, then substitute the values.\n\n+ ──[ R ]── −\n      I →" } }] }
     ]
   }
 ]

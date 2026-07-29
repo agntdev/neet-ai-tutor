@@ -1,20 +1,10 @@
 [
   {
-    "name": "Chapter Lessons",
+    "name": "Chapter lessons open a structured NCERT lesson",
     "steps": [
-      {
-        "expect": [
-          {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Browse structured lessons with NCERT alignment and concept explanations"
-            }
-          }
-        ],
-        "send": {
-          "callback": "lesson:select"
-        }
-      }
+      { "send": { "callback": "lesson:select" }, "expect": [{ "method": "editMessageText", "payload": { "text": "Choose a subject to open an NCERT-aligned chapter." } }] },
+      { "send": { "callback": "lesson:subject:Biology" }, "expect": [{ "method": "editMessageText", "payload": { "text": "Choose a Biology chapter." } }] },
+      { "send": { "callback": "lesson:bio:cell" }, "expect": [{ "method": "editMessageText", "payload": { "text": "Cell: The Unit of Life\n\nCells are the structural and functional units of life. Compare prokaryotic cells, which lack a membrane-bound nucleus, with eukaryotic cells, which have one.\n\nNCERT Biology Class 11, Chapter 8 · Foundation level" } }] }
     ]
   }
 ]
