@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Premium access opens a Telegram purchase flow",
+    "steps": [
+      { "send": { "callback": "premium:show" }, "expect": [{ "method": "editMessageText", "payload": { "text": "Unlock premium chapter practice and detailed revision support with a one-time Telegram Stars purchase." } }] },
+      { "send": { "callback": "premium:buy" }, "expect": [{ "method": "sendInvoice", "payload": { "title": "NEET AI Tutor Premium", "currency": "XTR" } }] }
+    ]
+  }
+]

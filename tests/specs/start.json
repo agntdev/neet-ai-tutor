@@ -1,16 +1,10 @@
 [
   {
-    "name": "/start replies with the welcome + main menu",
+    "name": "/start begins language selection",
     "steps": [
-      {
-        "send": { "text": "/start" },
-        "expect": [
-          {
-            "method": "sendMessage",
-            "payload": { "text": "👋 Welcome! Tap a button below to get started." }
-          }
-        ]
-      }
+      { "send": { "text": "/start" }, "expect": [{ "method": "sendMessage", "payload": { "text": "Welcome to NEET AI Tutor. Choose the language you’d like to learn in." } }] },
+      { "send": { "callback": "onboard:lang:EN" }, "expect": [{ "method": "editMessageText", "payload": { "text": "Before we personalise your practice, may we save your progress and submitted doubts? Your study data stays private and you can delete it anytime." } }] },
+      { "send": { "callback": "onboard:consent:yes" }, "expect": [{ "method": "editMessageText", "payload": { "text": "Start with a short diagnostic to find the right chapter level, or begin learning now." } }] }
     ]
   }
 ]

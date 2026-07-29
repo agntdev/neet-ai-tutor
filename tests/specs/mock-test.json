@@ -1,20 +1,10 @@
 [
   {
-    "name": "Take Mock Test",
+    "name": "Mock test gives PYQ-style analysis and tracks score",
     "steps": [
-      {
-        "expect": [
-          {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Access PYQs and chapterwise quizzes with detailed answer analysis"
-            }
-          }
-        ],
-        "send": {
-          "callback": "mock:test"
-        }
-      }
+      { "send": { "callback": "mock:test" }, "expect": [{ "method": "editMessageText", "payload": { "text": "Choose a subject for a chapterwise PYQ-style question." } }] },
+      { "send": { "callback": "quiz:subject:Physics" }, "expect": [{ "method": "editMessageText", "payload": { "text": "Motion in a Straight Line\n\nThe slope of a velocity–time graph gives:" } }] },
+      { "send": { "callback": "quiz:mcq:Physics:1" }, "expect": [{ "method": "editMessageText", "payload": { "text": "Correct — well done.\n\nWhy: Acceleration is the rate of change of velocity with time, which is the slope of a velocity–time graph.\n\nTested concept: Motion in a Straight Line\nNCERT Physics Class 11, Chapter 3\n\nYour chapter score: 1/1" } }] }
     ]
   }
 ]

@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Progress has a helpful empty state",
+    "steps": [
+      { "send": { "callback": "progress:show" }, "expect": [{ "method": "editMessageText", "payload": { "text": "No quiz results yet — take a mock test to start your progress report." } }] }
+    ]
+  }
+]

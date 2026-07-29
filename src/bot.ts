@@ -6,7 +6,11 @@ import type { StorageAdapter } from "grammy";
 // bot grows. Durable domain data must NOT live here — use the toolkit's
 // persistent storage (see AGENTS.md).
 export interface Session {
-  // example: step?: "awaiting_amount";
+  step?: "idle" | "language" | "consent" | "diagnostic" | "doubt_media";
+  flowExpiresAt?: number;
+  /** Conversation state is short lived; learner data below is persisted by the
+   * toolkit's selected Redis/Durable-Object adapter, never a process cache. */
+  learner?: import("./learner-store.js").LearnerRecord;
 }
 
 export type Ctx = BotContext<Session>;
