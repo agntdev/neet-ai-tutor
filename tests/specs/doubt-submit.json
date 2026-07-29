@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Ask Doubt",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Initiate multimodal doubt submission flow (image/PDF/voice)"
+            }
+          }
+        ],
+        "send": {
+          "callback": "doubt:submit"
+        }
+      }
+    ]
+  }
+]
